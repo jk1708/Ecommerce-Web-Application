@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,700,900" rel="stylesheet">
+
+  <!-- Bootstrap -->
+  <link type="text/css" rel="stylesheet" href="css1/bootstrap.min.css" />
+
+  <!-- Owl Carousel -->
+  <link type="text/css" rel="stylesheet" href="css1/owl.carousel.css" />
+  <link type="text/css" rel="stylesheet" href="css1/owl.theme.default.css" />
+
+  <!-- Font Awesome Icon -->
+  <link rel="stylesheet" href="css1/font-awesome.min.css">
+
+  <!-- Custom stlylesheet -->
+  <link type="text/css" rel="stylesheet" href="css1/style.css" />
+
+<style>
+
+label {display: block; padding: 30px; position: relative; padding-left: 30px;}
+label input {display: none;}
+label span {border: 1px solid #ccc; width: 40px; height: 40px; position: absolute; overflow: hidden; line-height: 2.5; text-align: center; border-radius: 100%; font-size: 15px; left: 0; top: 50%; margin-top: -2.5px;}
+input:checked + span {background: #ccf; border-color: #ccf;}
+input:disabled +span {background: #e6e6e6; color: #b3b3b3;  }
+.o{
+  border: none;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin-top:27px;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+</style>
+<header id="header">
+  <!-- container -->
+{{> header}}
+  <!-- /container -->
+</header>
+</head>
+<br>
+<br>
+
+
+{{# each products}}
+
+<div class="col-md-4 qw">
+<img src={{imgpath2}} height="600px" width="460px">
+><img src={{imgpath3}} height="600px" width="460px">
+</div>
+
+<div class="col-md-4 qw" >
+
+<img src={{imgpath4}} height="600px" width="460px">
+<img src={{imgpath5}} height="600px" width="460px"></div>
+<div class="col-md-4 x" ><div class="a">{{title}}</div>
+
+
+<div class="d">
+{{description}}</div>
+
+<hr>
+
+
+<div class="a">Rs.{{price}}</div><br>
+<form method="POST" action="/addtocart">
+		<input type="hidden" value='{{id}}' name="idnumber">
+<div class="b">  SELECT SIZE</div>
+
+  <div class="o">
+  <label><input type="radio" name="select" value="S"  {{#if os}} disabled {{/if}}/><span >S</span></label>
+  <label><input type="radio" name="select" value="M"  {{#if om}} disabled {{/if}}/><span>M</span></label>
+  <label><input type="radio" name="select" value="L" {{#if ol}} disabled {{/if}}/><span>L</span></label>
+  <label><input type="radio" name="select" value="XL"  {{#if oxl}} disabled {{/if}}/><span>XL</span></label>
+  <label><input type="radio" name="select" value="XXL"  {{#if oxxl}} disabled {{/if}}/><span>XXL</span></label>
+</div>
+<br>
+<span><div class="op4">
+  <input type="submit" class="main-btn1" value="ADD TO CART"></div></span>
+
+</form>
+<hr>
+<br>
+<div class="c">
+  <div class="b">  PRODUCT DETAILS</div><br>
+{{specification}}</div>
+</div>
+
+{{/each}}

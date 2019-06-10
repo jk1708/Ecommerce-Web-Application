@@ -1,0 +1,92 @@
+<html>
+	<link rel="stylesheet" href="css1/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.dropdown {
+  position: relative;
+  display: inline-block;
+	margin-top:28px;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+
+	padding-bottom: 0px;
+	padding-top: 0;
+  text-decoration: none;
+  display: block;
+}
+.qwe{
+	padding-bottom:0px !important;
+	margin-top: 0px !important;
+}
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+</style>
+
+<div class="container">
+
+  <nav id="nav">
+		<ul class=" nav  navbar-left"><li class="qwe"><a href="/"><img src="/img1/Untitled.png" height="50px" width="90px" ></a></li></ul>
+    <ul class="main-nav nav navbar-nav navbar-right">
+      <li>
+<div class="dropdown">
+        <a>Men</a><div class="dropdown-content">
+<a href="mentopwear">Top wear</a>
+<a href="menbottomwear">Bottom wear</a>
+<a href="menfootwear">Footwear</a>
+</div></div></li>
+      <li><div class="dropdown">
+                  <a>Women</a><div class="dropdown-content">
+          <a href="womenkurti">Indian wear</a>
+          <a href="womenwestern">Western wear</a>
+          <a href="womenfootwear">Footwear</a>
+        </div></div></li>
+      <li><div class="dropdown">
+                  <a>Kids</a><div class="dropdown-content">
+          <a href="boysclothing">Boys Clothing</a>
+          <a href="girlsclothing">Girls Clothing</a>
+          <a href="kidsac">Kids Accessories</a>
+        </div></div></li>
+      <li><a href="#living">Home & Living</a></li>
+      {{# if login}}
+
+      <li><a href="/profilee"><i class="fa fa-user"></i>&nbsp;Profile</a></li>
+
+
+
+      <li><a href="/logout">Log Out</a></li>
+
+{{else}}
+<li><a href="/login">Log In</a></li>
+      {{/if}}
+
+    <!--	<li><a href="#contact">Contact</a></li> -->
+      <li><a href="shoppingcart"><i class="fa fa-shopping-cart"></i>&nbsp;Cart<span class="badge">{{session.cart.totalQty}}</span></a></li>
+    </ul>
+  </nav>
+  <!-- /Navigation -->
+</div>
+
+</html>

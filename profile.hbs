@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,700,900" rel="stylesheet">
+
+  <!-- Bootstrap -->
+  <link type="text/css" rel="stylesheet" href="css1/bootstrap.min.css" />
+
+  <!-- Owl Carousel -->
+  <link type="text/css" rel="stylesheet" href="css1/owl.carousel.css" />
+  <link type="text/css" rel="stylesheet" href="css1/owl.theme.default.css" />
+
+  <!-- Font Awesome Icon -->
+  <link rel="stylesheet" href="css1/font-awesome.min.css">
+
+  <!-- Custom stlylesheet -->
+  <link type="text/css" rel="stylesheet" href="css1/style.css" />
+
+<style>
+
+label {display: block; padding: 30px; position: relative; padding-left: 30px;}
+label input {display: none;}
+label span {border: 1px solid #ccc; width: 40px; height: 40px; position: absolute; overflow: hidden; line-height: 2.5; text-align: center; border-radius: 100%; font-size: 15px; left: 0; top: 50%; margin-top: -2.5px;}
+input:checked + span {background: #ccf; border-color: #ccf;}
+.q1{
+		font-family: arial;
+		font-size:30px;
+		font-weight:bold;
+}
+.q{
+	font-family: arial;
+
+}
+.q3{
+	font-size: 26px !important;
+	font-family: arial !important;
+	font-weight:200;
+
+}
+.q4{
+	font-size: 20px !important;
+	font-famiy:arial !important;
+	font-weight:100px !important;
+}
+.q5> body{
+	font-size: 21px !important;
+	font-famiy:arial !important;
+	font-weight:200px !important;
+}
+</style>
+<header id="header">
+{{> header}}
+</header>
+</head>
+<div class="row">
+<div class="col-md-8 col-md-offset-2">
+	<br>
+<div class="q1">Account</div>
+<div class="q">{{email}}</div>
+<hr>
+<div class="q1">My Orders</div>
+<br><br>
+	{{#if orders}}
+{{# each orders}}
+<div class="panel panel-default">
+<div class="panel-body">
+  <ul class="list-group">
+    {{# each this.items}}
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      <img height=130px width=100px src="{{this.item.imgpath1}}"> &nbsp; &nbsp;&nbsp; &nbsp;<span class="q3">{{this.item.title}}</span>
+        <br>
+				<div class="q4">
+        {{# ifEquals this.category "Men Footwear"}}
+        {{# if this.qty1}}
+        <pre>Size: 6         Qty: {{this.qty1}}</pre>
+        {{/if}}
+        {{# if this.qty2}}
+        <pre>Size: 7         Qty: {{this.qty2}}</pre>
+        {{/if}}
+        {{# if this.qty3}}
+        <pre>Size: 8         Qty: {{this.qty3}}</pre>
+        {{/if}}
+        {{# if this.qty4}}
+        <pre>Size: 9         Qty: {{this.qty4}}</pre>
+        {{/if}}
+        {{# if this.qty5}}
+        <pre>Size: 10         Qty: {{this.qty5}}</pre>
+        {{/if}}
+        {{/ifEquals}}
+        {{# ifEquals this.category "Women Footwear"}}
+        {{# if this.qty1}}
+        <pre>Size: 6         Qty: {{this.qty1}}</pre>
+        {{/if}}
+        {{# if this.qty2}}
+        <pre>Size: 7         Qty: {{this.qty2}}</pre>
+        {{/if}}
+        {{# if this.qty3}}
+        <pre>Size: 8         Qty: {{this.qty3}}</pre>
+        {{/if}}
+        {{# if this.qty4}}
+        <pre>Size: 9         Qty: {{this.qty4}}</pre>
+        {{/if}}
+        {{# if this.qty5}}
+        <pre>Size: 10         Qty: {{this.qty5}}</pre>
+        {{/if}}
+        {{/ifEquals}}
+        {{# ifNotequals this.category "Men Footwear"}}
+          {{# ifNotequals this.category "Women Footwear"}}
+        {{# if this.qty1}}
+        <pre>Size: S         Qty: {{this.qty1}}</pre>
+        {{/if}}
+        {{# if this.qty2}}
+        <pre>Size: M         Qty: {{this.qty2}}</pre>
+        {{/if}}
+        {{# if this.qty3}}
+        <pre>Size: L         Qty: {{this.qty3}}</pre>
+        {{/if}}
+        {{# if this.qty4}}
+        <pre>Size: XL         Qty: {{this.qty4}}</pre>
+        {{/if}}
+        {{# if this.qty5}}
+        <pre>Size: XXL         Qty: {{this.qty5}}</pre>
+        {{/if}}
+        {{/ifNotequals}}
+        {{/ifNotequals}}
+			</div>
+      <span class="badge badge-primary badge-pill">Rs.&nbsp;{{this.price1}}</span>
+    </li>
+    <br>
+    {{/each}}
+  </ul>
+</div>
+<div class="panel-footer">
+<div class="q5"><b>Total Amount:&nbsp; Rs.&nbsp; {{this.cart.totalPrice}}</b></div>
+</div>
+<br>
+{{/each}}
+{{else}}
+<br><br><br>
+<center><h3>No orders yet!</h3></center>
+{{/if}}
+</div>
+<br>
+
+</div>
+</div>
+<br>
+
+{{#ifEquals email "admin@gmail.com"}}
+<div class="q1">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+	&nbsp; Products Added&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
+<a href="/placeorder" class="main-btnn1">Add New Product</a>
+
+
+</div>
+{{/ifEquals}}
+
+
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,700,900" rel="stylesheet">
+
+  <!-- Bootstrap -->
+  <link type="text/css" rel="stylesheet" href="css1/bootstrap.min.css" />
+
+  <!-- Owl Carousel -->
+  <link type="text/css" rel="stylesheet" href="css1/owl.carousel.css" />
+  <link type="text/css" rel="stylesheet" href="css1/owl.theme.default.css" />
+
+  <!-- Font Awesome Icon -->
+  <link rel="stylesheet" href="css1/font-awesome.min.css">
+
+  <!-- Custom stlylesheet -->
+  <link type="text/css" rel="stylesheet" href="css1/style.css" />
+
+<style>
+
+label {display: block; padding: 30px; position: relative; padding-left: 30px;}
+label input {display: none;}
+label span {border: 1px solid #ccc; width: 40px; height: 40px; position: absolute; overflow: hidden; line-height: 2.5; text-align: center; border-radius: 100%; font-size: 15px; left: 0; top: 50%; margin-top: -2.5px;}
+input:checked + span {background: #ccf; border-color: #ccf;}
+.q1{
+		font-family: arial;
+		font-size:30px;
+		font-weight:bold;
+}
+.q{
+	font-family: arial;
+
+}
+.q3{
+	font-size: 26px !important;
+	font-family: arial !important;
+	font-weight:200;
+
+}
+.q4{
+	font-size: 20px !important;
+	font-famiy:arial !important;
+	font-weight:100px !important;
+}
+.q5> body{
+	font-size: 21px !important;
+	font-famiy:arial !important;
+	font-weight:200px !important;
+}
+</style>
+<header id="header">
+{{> header}}
+</header>
+</head>
+<div class="row">
+<div class="col-md-8 col-md-offset-2">
+	<br>
+<div class="q1">Account</div>
+<div class="q">{{email}}</div>
+<hr>
+
+<br>
+
+</div>
+<br>
+
+</div>
+</div>
+<br>
+
+
+<div class="q1">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+	&nbsp; Products Added&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
+<a href="/admin" class="main-btnn1">Add New Product</a>
+
+
+</div>
+
+<br>
+<br>
+{{#if products}}
+{{#each products}}
+<div class="box">
+<div class="row">
+
+<div class="col-md-3" style="font-size:18px;">
+	<b>Id:</b>&nbsp;{{this.id}}</div>
+<div class="col-md-4" style="font-size:18px;">
+	<b>Title:</b>
+	&nbsp;{{this.title}}
+</div>
+<div class="col-md-5" style="font-size:18px;">
+<b>Category:</b>&nbsp;{{this.category}}
+</div>
+
+
+</div>
+<br>
+<div class="row">
+	<div class="col-md-3" style="font-size:18px;">
+	<b>Price</b>&nbsp;{{this.price}}
+	</div>
+<div class="col-md-4" style="font-size:18px;">
+	<b>Description:</b>&nbsp;{{this.description}}</div>
+<div class="col-md-5" style="font-size:18px;">
+	<b>Imgpath1:</b>
+	&nbsp;{{this.imgpath1}}
+</div>
+
+
+
+</div>
+
+
+<br>
+<div class="row">
+	<div class="col-md-6" style="font-size:18px;">
+	<b>Imgpath2:</b>&nbsp;{{this.imgpath2}}
+	</div>
+<div class="col-md-6" style="font-size:18px;">
+	<b>Imgpath3:</b>&nbsp;{{this.imgpath3}}</div>
+
+
+
+
+</div>
+<br>
+<div class="row">
+	<div class="col-md-6" style="font-size:18px;">
+	<b>Imgpath4:</b>&nbsp;{{this.imgpath4}}
+	</div>
+<div class="col-md-6" style="font-size:18px;">
+	<b>Imgpath5:</b>&nbsp;{{this.imgpath5}}</div>
+
+
+
+
+</div>
+<br>
+<div class="row">
+	<div class="col-md-2" style="font-size:18px;">
+	<b>Size</b>
+	</div>
+	<div class="col-md-2" style="font-size:18px;">
+<b>S:</b>&nbsp;{{this.s}}
+	</div>
+<div class="col-md-2" style="font-size:18px;">
+<b>M:</b>&nbsp;{{this.m}}</div>
+<div class="col-md-2" style="font-size:18px;">
+	<b>L:</b>&nbsp;{{this.l}}
+</div>
+<div class="col-md-2" style="font-size:18px;">
+	<b>XL:</b>&nbsp;{{this.xl}}
+</div>
+<div class="col-md-2" style="font-size:18px;">
+<b>XXL:</b>&nbsp;{{this.xxl}}
+</div>
+
+
+</div>
+<br>
+<div class="row">
+	<div class="col-md-12" style="font-size:18px;">
+	<b>Specification:</b>&nbsp;{{this.specification}}
+	</div>
+
+
+
+</div>
+<br>
+<div class="row">
+	<div class="col-md-6">
+<center><a href="/deleteproduct/{{this.id}}" class="main-btnn2">Delete Product</a></center></div>
+
+
+<div class="col-md-6"><center><form method="POST" action="/editadminform"><input type="hidden" value={{this.id}} name="idnumber"/><button  class="main-btnn2" type="submit">Edit Details</a></form></center></div>
+</div>
+</div>
+
+
+{{/each}}
+{{/if}}
+</html>

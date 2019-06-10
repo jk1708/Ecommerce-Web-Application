@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<meta http-equiv="refresh" content="1">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+	<title>Confirm Order</title>
+
+	<!-- Google font -->
+	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700,900" rel="stylesheet">
+
+	<!-- Bootstrap -->
+	<link type="text/css" rel="stylesheet" href="css1/bootstrap.min.css" />
+
+	<!-- Owl Carousel -->
+	<link type="text/css" rel="stylesheet" href="css1/owl.carousel.css" />
+	<link type="text/css" rel="stylesheet" href="css1/owl.theme.default.css" />
+
+	<!-- Font Awesome Icon -->
+	<link rel="stylesheet" href="css1/font-awesome.min.css">
+
+	<!-- Custom stlylesheet -->
+	<link type="text/css" rel="stylesheet" href="css1/style.css" />
+  <script>
+
+
+  </script>
+	<style>
+
+	label {display: block; padding: 30px; position: relative; padding-left: 30px;}
+	label input {display: none;}
+	label span {border: 1px solid #ccc; width: 40px; height: 40px; position: absolute; overflow: hidden; line-height: 2.5; text-align: center; border-radius: 100%; font-size: 15px; left: 0; top: 50%; margin-top: -2.5px;}
+	input:checked + span {background: #ccf; border-color: #ccf;}
+	.o{
+	  border: none;
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+	}
+	.dropdown {
+	  position: relative;
+	  display: inline-block;
+	  margin-top:27px;
+	}
+
+	/* Dropdown Content (Hidden by Default) */
+	.dropdown-content {
+	  display: none;
+	  position: absolute;
+	  background-color: #f9f9f9;
+	  min-width: 160px;
+	  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	  z-index: 1;
+	}
+
+	/* Links inside the dropdown */
+	.dropdown-content a {
+	  color: black;
+	  padding: 12px 16px;
+	  text-decoration: none;
+	  display: block;
+	}
+
+	/* Change color of dropdown links on hover */
+	.dropdown-content a:hover {background-color: #f1f1f1}
+
+	/* Show the dropdown menu on hover */
+	.dropdown:hover .dropdown-content {
+	  display: block;
+	}
+
+	/* Change the background color of the dropdown button when the dropdown content is shown */
+	.dropdown:hover .dropbtn {
+	  background-color: #3e8e41;
+	}
+	</style>
+	<header id="header">
+		<!-- container -->
+	{{> header}}
+		<!-- /container -->
+	</header>
+    <br>
+  <br>
+  <div class="qwer">
+{{# if protitles}}
+<div class="a1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Following items are out of stock right now :( </div><br>
+<div class="a2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{# each protitles}}
+{{this}}
+<br>
+</div>
+{{/each}}
+{{/if}}
+</div>
+<br>
+<br><br>
+{{# if totalQty}}
+<div class="row">
+
+
+<div class="col-md-7">
+<div class="row">
+{{# if products}}
+
+    {{# each products}}
+
+
+      <center>
+<div class="col-md-4">
+    <input type="image" height="200px" width="150px" src="{{this.item.imgpath1}}" alt="">
+
+</div>
+
+
+
+
+<div class="col-md-5 x" >
+  <br><br><div class="a1">{{this.item.title}}</div>
+<div class="d1">{{this.item.description}}</div>
+
+<div class="d1">Rs.{{this.price1}}</div>
+<br>
+
+<div class="d1">
+  {{#ifEquals this.item.category "Men Footwear"}}
+
+  {{# if this.qty1}}
+
+  Size:  6    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Qty: {{this.qty1}}
+  <br>
+  {{/if}}
+  {{# if this.qty2}}
+
+Size:  7   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; Qty: {{this.qty2}}
+<br>
+{{/if}}
+{{# if this.qty3}}
+Size: 8    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Qty: {{this.qty3}}
+<br>
+{{/if}}
+{{# if this.qty4}}
+Size: 9     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Qty: {{this.qty4}}
+<br>
+{{/if}}
+{{# if this.qty5}}
+Size: 10     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Qty: {{this.qty5}}
+<br>
+{{/if}}
+{{/ifEquals}}
+{{#ifEquals this.item.category "Women Footwear"}}
+
+{{# if this.qty1}}
+
+Size:  6    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Qty: {{this.qty1}}
+<br>
+{{/if}}
+{{# if this.qty2}}
+
+Size:  7   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Qty: {{this.qty2}}
+<br>
+{{/if}}
+{{# if this.qty3}}
+Size: 8    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; Qty: {{this.qty3}}
+<br>
+{{/if}}
+{{# if this.qty4}}
+Size: 9     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;Qty: {{this.qty4}}
+<br>
+{{/if}}
+{{# if this.qty5}}
+Size: 10     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Qty: {{this.qty5}}
+<br>
+{{/if}}
+{{/ifEquals}}
+{{#ifNotequals this.item.category "Men Footwear"}}
+{{#ifNotequals this.item.category "Women Footwear"}}
+{{# if this.qty1}}
+Size: S   &nbsp;&nbsp;&nbsp;&nbsp;Qty: {{this.qty1}}
+<br>
+{{/if}}
+
+{{# if this.qty2}}
+Size: M    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Qty: {{this.qty2}}
+<br>
+{{/if}}
+{{# if this.qty3}}
+Size: L     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Qty: {{this.qty3}}
+<br>
+{{/if}}
+{{# if this.qty4}}
+Size: XL     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Qty: {{this.qty4}}
+<br>
+{{/if}}
+{{# if this.qty5}}
+Size: XXL    &nbsp;&nbsp;&nbsp;&nbsp;Qty: {{this.qty5}}
+<br>
+{{/if}}
+{{/ifNotequals}}
+{{/ifNotequals}}
+</div>
+</div>
+
+
+
+</center>
+<br><br><br><br><br><br><br><br><br><br>
+
+{{/each}}
+</div>
+<div class="row">
+<center>
+
+	<div class="col-md-6">
+		<br><br><br><a href="/" class="main-btn4">< Continue Shopping</a>
+
+</div>
+
+</center>
+</div>
+</div>
+
+
+<div class="col-md-4 x ap" >
+
+	<center>
+    <br>
+<div class="c1">&nbsp;&nbsp; PRICE DETAILS</div><br>
+<div class="c2">&nbsp;&nbsp;&nbsp;&nbsp;Total MRP (inclusive of all taxes):&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Rs.&nbsp;{{totalPrice}}<br><br>
+	{{#if sc}}
+	&nbsp;&nbsp;&nbsp;&nbsp;Shipping charges: &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rs.&nbsp;{{sc}}</div>
+	{{else}}
+	&nbsp;&nbsp;&nbsp;&nbsp;Shipping charges: &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FREE</div>
+	{{/if}}
+
+<div class="c4"><hr></div>
+  <div class="c3">&nbsp;&nbsp; &nbsp;&nbsp; Total:   &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Rs.&nbsp;{{total}}<br></div>
+	<br><br>
+
+	<a href="/checkoutform" class="main-btnn" >CONFIRM ORDER</a>
+	</center>
+<div class="v1"></div></div>
+</div>
+
+
+
+</div>
+
+{{else}}
+
+{{/if}}
+{{else}}
+<center>
+	<img src="/img1/cart1.png" height="400px" width="400px"><br><br><br><div class="ao">
+Your Shopping Cart is empty!</div>
+</center>
+{{/if}}
+</html>

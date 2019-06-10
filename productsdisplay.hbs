@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+	<title>Products Display</title>
+
+	<!-- Google font -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700,900" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- Bootstrap -->
+	<link type="text/css" rel="stylesheet" href="css1/bootstrap.min.css" />
+
+	<!-- Owl Carousel -->
+	<link type="text/css" rel="stylesheet" href="css1/owl.carousel.css" />
+	<link type="text/css" rel="stylesheet" href="css1/owl.theme.default.css" />
+
+	<!-- Font Awesome Icon -->
+	<link rel="stylesheet" href="css1/font-awesome.min.css">
+
+	<!-- Custom stlylesheet -->
+	<link type="text/css" rel="stylesheet" href="css1/style.css" />
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+			  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+			  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+			<![endif]-->
+			<style>
+
+/* The popup form - hidden by default */
+.main-btn1{
+	position:relative;
+}
+.o{
+
+  border: none;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+}
+.big> .form-container{
+	width:50px;
+	height:50px;
+}
+
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 2000px;
+  padding: 0px;
+  background-color: white;
+}
+label {display: block; padding: 30px; position: relative; padding-left: 23px;padding-top:0px;}
+label input {display: none;}
+label span {border: 1px solid #ccc; width: 30px; height: 30px; position: absolute; overflow: hidden;
+	 line-height: 2.5; text-align: center; border-radius: 100%; font-size: 12px; left: 0; top: 50%; margin-top: -2.5px}
+input:checked + span {background: #ccf; border-color: #ccf;}
+input:disabled +span {background: #e6e6e6; color: #b3b3b3;  }
+/* Full-width input fields */
+
+
+/* When the inputs get focus, do something */
+
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 400%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+			.dropdown {
+			  position: relative
+			  display: inline-block;
+				margin-top:27px;
+			}
+
+			/* Dropdown Content (Hidden by Default) */
+			.dropdown-content {
+			  display: none;
+			  position: absolute;
+			  background-color: #f9f9f9;
+			  min-width: 160px;
+			  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+			  z-index: 1;
+			}
+
+			/* Links inside the dropdown */
+			.dropdown-content a {
+			  color: black;
+			  padding: 12px 16px;
+			  text-decoration: none;
+			  display: block;
+			}
+
+			/* Change color of dropdown links on hover */
+			.dropdown-content a:hover {background-color: #f1f1f1}
+
+			/* Show the dropdown menu on hover */
+			.dropdown:hover .dropdown-content {
+			  display: block;
+			}
+
+			/* Change the background color of the dropdown button when the dropdown content is shown */
+			.dropdown:hover .dropbtn {
+			  background-color: #3e8e41;
+			}
+			</style>
+			<header id="header">
+				<!-- container -->
+			{{> header}}
+				<!-- /container -->
+			</header>
+</head>
+
+
+{{# each products}}
+  <div class="row">
+    {{# each this}}
+		<script>
+		var idno= {{this.id}};
+
+		function openForm(element, id) {
+					var pp='form1'+id;
+					var pp1='#'+pp;
+					console.log(pp);
+			// var rect=element.getBoundingClientRect();
+			// document.getElementById(pp).style.display = '';
+			// document.getElementById(pp).style.position = 'absolute';
+			// console.log(rect.x);
+			// console.log(rect.y);
+			// document.getElementById(pp).style.left = rect.x-50+'px';
+			// document.getElementById(pp).style.top = rect.y-240+'px';
+
+		$(pp1).show();
+		}
+
+		function closeForm(id) {
+			var pe='form1'+id;
+			console.log(pe);
+			document.getElementById(pe).style.display = "none";
+		}
+
+		</script>
+<style>
+.op4{
+	position: relative;
+}
+.form-popup {
+  display: none;
+position:absolute;
+  bottom: 50px;
+  right: 0px;
+  border: 1px solid #f1f1f1;
+	width:82%;
+	left:20px;
+
+  z-index: 1;
+}
+</style>
+
+    <div class="col-md-3 col-sm-6">
+      <div id="opr">
+
+        <div >
+
+				<div class="x">
+				<div class="form-popup" id="form1{{id}}">
+				  <form action="/addtocart" class="form-container" method="post">
+
+							<input type="hidden" value='{{this.id}}' name="idnumber">
+				    <div style="font-size:20px; padding-top:5px; font-family:palatino; color:black; ">&nbsp; &nbsp;Select a size:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+
+							<i class="fa fa-times" onclick="closeForm('{{id}}')" style="color:lightgrey; "></i></div><br>
+{{#ifEquals category "Men Footwear"}}
+
+						<div class="o">
+					  <label><input type="radio" value="6" class="big" name="select" onchange="this.form.submit()"    {{#if os}} disabled {{/if}}/><span >6</span></label>
+
+					  <label><input type="radio" class="big" value="7" name="select" onchange="this.form.submit()"  {{#if om}} disabled {{/if}}/><span>7</span></label>
+					  <label><input type="radio" class="big" value="8" name="select" onchange="this.form.submit()"  {{#if ol}} disabled {{/if}}/><span>8</span></label>
+					  <label><input type="radio" value="9"  class="big" name="select" onchange="this.form.submit()"  {{#if oxl}} disabled {{/if}}/><span>9</span></label>
+					  <label><input type="radio" value="10"  class="big" name="select" onchange="this.form.submit()"  {{#if oxxl}} disabled {{/if}}/><span>10</span></label>
+					</div>
+{{/ifEquals}}
+{{#ifEquals category "Women Footwear"}}
+
+						<div class="o">
+					  <label><input type="radio" value="6" class="big" name="select" onchange="this.form.submit()"  {{#if os}} disabled {{/if}}/><span >6</span></label>
+
+					  <label><input type="radio" class="big" value="7" name="select" onchange="this.form.submit()" {{#if om}} disabled {{/if}}/><span>7</span></label>
+					  <label><input type="radio" class="big" value="8" name="select" onchange="this.form.submit()" {{#if ol}} disabled {{/if}}/><span>8</span></label>
+					  <label><input type="radio" value="9"  class="big" name="select" onchange="this.form.submit()" {{#if oxl}} disabled {{/if}}/><span>9</span></label>
+					  <label><input type="radio" value="10"  class="big" name="select" onchange="this.form.submit()" {{#if oxxl}} disabled {{/if}}/><span>10</span></label>
+					</div>
+{{/ifEquals}}
+
+					{{#ifNotequals category "Men Footwear"}}
+					{{#ifNotequals category "Women Footwear"}}
+						<div class="o">
+					  <label><input type="radio" value="S" class="big" name="select" onchange="this.form.submit()" {{#if os}} disabled {{/if}}/><span >S</span></label>
+
+					  <label><input type="radio" class="big" value="M" name="select" onchange="this.form.submit()" {{#if om}} disabled {{/if}}/><span>M</span></label>
+					  <label><input type="radio" class="big" value="L" name="select" onchange="this.form.submit()" {{#if ol}} disabled {{/if}}/><span>L</span></label>
+					  <label><input type="radio" value="XL"  class="big" name="select" onchange="this.form.submit()" {{#if oxl}} disabled {{/if}}/><span>XL</span></label>
+					  <label><input type="radio" value="XXL"  class="big" name="select" onchange="this.form.submit()" {{#if oxxl}} disabled {{/if}}/><span>XXL</span></label>
+					</div>
+
+{{/ifNotequals}}
+{{/ifNotequals}}
+<br>
+				  </form>
+				</div></div>
+<form method="POST" action="displayproductdetails">
+	<input type="hidden" value='{{id}}' name="idnumber">
+			<input type="image" height="300px" width="250px" src="{{imgpath1}}" alt="">
+</form>
+
+			</div>
+        <div class="speaker-body">
+
+          <div class="speaker-content">
+            <div class="op3">{{title}}</div>
+            <div class="op">
+{{description}}</div><div class="op1">
+              Rs.{{price}}</div>
+            <span><div class="op4">
+            	<button class="main-btn1" id="b11" onclick="openForm(this,'{{id}}')">Add to cart</button></div></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+{{/each}}
