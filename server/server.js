@@ -21,6 +21,7 @@ var MongoStore= require('connect-mongo')(session);
 const path= require('path');
 const publicPath= path.join(__dirname, '..');
 var app= express();
+const port= process.env.PORT || 3000;
 require('../config/passport');
 app.use(express.static(publicPath));
 app.use(bodyParser.json());
