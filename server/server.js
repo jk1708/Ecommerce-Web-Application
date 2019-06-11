@@ -1,7 +1,7 @@
 var apq=[];
 var parr=[];
 var ty=0;
-const _ = require('lodash');
+
 const express = require('express');
 var {Product}= require('./models/product');
 var async= require('async');
