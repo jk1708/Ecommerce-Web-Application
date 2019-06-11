@@ -1,10 +1,10 @@
-var async= require('async');
 var apq=[];
 var parr=[];
 var ty=0;
 const _ = require('lodash');
 const express = require('express');
 var {Product}= require('./models/product');
+var async= require('async');
 var passport= require('passport');
 var flash= require('connect-flash');
 var validator= require('express-validator');
@@ -1037,5 +1037,5 @@ app.get('/adminnextpage',(req,res)=>{
     res.sendFile(path.join(__dirname+ '/../adminnext.html'));
 });
 app.listen(3000, ()=>{
-  console.log('server is up on port 3000');
+  console.log(`server is up on port ${port}`);
 });
