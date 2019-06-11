@@ -458,7 +458,7 @@ Product.find({id:req.body.idnumber},(err,docs)=>{
 app.post('/confirmedit',urlencodedParser, (req,res)=>{
   var id=req.body.id;
   Product.findOneAndUpdate({id:req.body.id},{$set:{xxl:req.body.xxl,xl:req.body.xl,l:req.body.l,m:req.body.m,s:req.body.s,title: req.body.title,imgpath1: req.body.image1, imgpath2: req.body.image2,imgpath3: req.body.image3,
-  imgpath4: req.body.image4,imgpath5: req.body.image5,description: req.body.description,price: req.body.price,}}, {new: true}).then((prod)=>{
+  imgpath4: req.body.image4,imgpath5: req.body.image5, specification:req.body.specification,description: req.body.description,price: req.body.price,}}, {new: true}).then((prod)=>{
   });
 
   res.redirect('/profilee');
