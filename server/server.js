@@ -1036,6 +1036,8 @@ app.get('/logout', isLoggedIn,(req,res)=>{
 app.get('/adminnextpage',(req,res)=>{
     res.sendFile(path.join(__dirname+ '/../adminnext.html'));
 });
-app.listen(3000, ()=>{
-  console.log(`server is up on port ${PORT}`);
-});
+// app.listen(3000, ()=>{
+//   console.log(`server is up on port ${PORT}`);
+// });
+var port_n=server.listen(`server is up on port ${PORT}`);
+app.listen(port_n);
