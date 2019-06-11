@@ -1037,5 +1037,5 @@ app.get('/adminnextpage',(req,res)=>{
     res.sendFile(path.join(__dirname+ '/../adminnext.html'));
 });
 app.listen(3000, ()=>{
-  console.log(`server is up on port ${port}`);
+  console.log(`server is up on port ${PORT}`);
 });
