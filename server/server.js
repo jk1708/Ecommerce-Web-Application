@@ -26,6 +26,11 @@ require('../config/passport');
 app.use(express.static(publicPath));
 app.use(bodyParser.json());
 app.use(cookieParser());
+var jsdom = require("jsdom");
+const { JSDOM } = jsdom;
+const { window } = new JSDOM();
+const { document } = (new JSDOM('')).window;
+global.document = document;
 var $= require('jQuery');
 app.use(session({
    secret: 'mysupersecret',
