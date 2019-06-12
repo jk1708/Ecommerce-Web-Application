@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <script>
-var jsdom = require("jsdom");
+var jsdom = require('jsdom');
 const { JSDOM } = jsdom;
 const { window } = new JSDOM();
 const { document } = (new JSDOM('')).window;
 global.document = document;
-var $= require('jQuery');
+var $= require('jquery');
 </script>
 <head>
 	<meta charset="utf-8">

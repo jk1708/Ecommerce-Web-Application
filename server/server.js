@@ -31,7 +31,7 @@ const { JSDOM } = jsdom;
 const { window } = new JSDOM();
 const { document } = (new JSDOM('')).window;
 global.document = document;
-var $= require('jQuery');
+var $= require('jquery');
 app.use(session({
    secret: 'mysupersecret',
    resave: false,
