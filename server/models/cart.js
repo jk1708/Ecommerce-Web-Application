@@ -417,7 +417,8 @@ console.log('removing');
     var storedItem= this.items[id];
 
     if(storedItem){
-      this.totalQty--;
+      var sub=this.items[id].item.qty1+this.items[id].item.qty2+this.items[id].item.qty3+this.items[id].item.qty4+this.items[id].item.qty5;
+      this.totalQty-=sub;
       this.totalPrice-=this.items[id].item.price;
   //var op1,op2,op,op3,op4
 //   Product.findOne({id:id}, function(err, prod){
