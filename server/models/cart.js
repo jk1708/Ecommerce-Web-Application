@@ -433,7 +433,7 @@ console.log('removing');
 // });
 delete this.items[id];
 console.log('findddddddddddddddd');
-console.log(this);}
+console.log(totalQty);}
 }
 this.removeall=function(){
   for(var id in this.items)

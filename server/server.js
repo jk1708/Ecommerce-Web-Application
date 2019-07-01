@@ -449,6 +449,7 @@ app.get('/shoppingcart', (req,res, next)=>{
   return  res.render(path.join(__dirname+ '/../shoppingcart.hbs'), {products: null});
   }
   var cart= new Cart(req.session.cart);
+  console.log(cart.totalQty);
 var p=false;
 
 console.log('qwas',p);
